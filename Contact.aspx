@@ -4,7 +4,7 @@
     <html>
     <head>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
-         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="leaflet-routing-machine.css"/>
         <style>
             #mapid { height: 500px; }
         </style>
@@ -12,10 +12,12 @@
     <body>
     
     <div id="mapid"></div>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="leaflet-routing-machine.js"></script>
     <script>
 
   // initialize the map
-        var mymap = L.map('mapid').setView([14.60144, 121.0046], 20);
+        var mymap = L.map('mapid').setView([14.60156, 121.00459], 18);
 
   // load a tile layer
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -25,6 +27,14 @@
             accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazY2YWZmMWUxMG9xM2Zsd2p0MnZvNW14In0.TQx3x3onTsOJ_l_A5NO-_Q',
             tileSize: 512,
             zoomOffset: -1
+        }).addTo(mymap);
+
+        L.Routing.control({
+            waypoints: [
+                L.latLng(14.60156, 121.00459),
+                L.latLng(14.59873, 121.00542)
+            ],
+            routeWhileDragging: true
         }).addTo(mymap);
 
   </script>
