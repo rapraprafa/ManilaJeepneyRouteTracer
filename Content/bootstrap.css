@@ -118,8 +118,7 @@ optgroup,
 select,
 textarea {
   color: inherit;
-  font: inherit;
-  margin: 0;
+  margin: 0 0 0 27px;
 }
 button {
   overflow: visible;
@@ -1269,6 +1268,7 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
+    height: 26px;
 }
 h3,
 .h3 {

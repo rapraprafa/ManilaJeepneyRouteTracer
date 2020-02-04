@@ -75,3 +75,11 @@ C:\Users\Rafamus\source\repos\test\obj\Debug\test.vbproj.CopyComplete
 C:\Users\Rafamus\source\repos\test\obj\Debug\test.dll
 C:\Users\Rafamus\source\repos\test\obj\Debug\WebForms_Basic.xml
 C:\Users\Rafamus\source\repos\test\obj\Debug\test.pdb
+C:\Users\Rafamus\source\repos\test\bin\BouncyCastle.Crypto.dll
+C:\Users\Rafamus\source\repos\test\bin\Google.Protobuf.dll
+C:\Users\Rafamus\source\repos\test\bin\MySql.Data.dll
+C:\Users\Rafamus\source\repos\test\bin\Renci.SshNet.dll
+C:\Users\Rafamus\source\repos\test\bin\Ubiety.Dns.Core.dll
+C:\Users\Rafamus\source\repos\test\bin\Google.Protobuf.xml
+C:\Users\Rafamus\source\repos\test\bin\MySql.Data.xml
+C:\Users\Rafamus\source\repos\test\bin\Renci.SshNet.xml

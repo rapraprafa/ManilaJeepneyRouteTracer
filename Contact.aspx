@@ -5,6 +5,8 @@
     <head>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
         <link rel="stylesheet" href="leaflet-routing-machine.css"/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+        <script src="leaflet-routing-machine.js"></script>
         <style>
             #mapid { height: 500px; }
         </style>
@@ -12,12 +14,10 @@
     <body>
     
     <div id="mapid"></div>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="leaflet-routing-machine.js"></script>
     <script>
 
   // initialize the map
-        var mymap = L.map('mapid').setView([14.60156, 121.00459], 18);
+        var mymap = L.map('mapid').setView([14.60156, 121.00459], 13);
 
   // load a tile layer
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -31,19 +31,20 @@
 
         L.Routing.control({
             waypoints: [
-                L.latLng(14.60156, 121.00459),
-                L.latLng(14.59873, 121.00542)
+                L.latLng(<%=startlat%>, <%=startlng%>),
+                L.latLng(<%=wayPointLat1%>, <%=wayPointLng1%>),
+                L.latLng(<%=endlat%>, <%=endlng%>)
             ],
-            routeWhileDragging: true
+        routeWhileDragging: true
         }).addTo(mymap);
 
   </script>
     <h2><%: Title %></h2>
-    <p>Your contact page.<asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="236px">
-        <asp:ListItem>vuvu</asp:ListItem>
-        <asp:ListItem>vovo</asp:ListItem>
-        <asp:ListItem>gogo</asp:ListItem>
+    <p>.<asp:DropDownList ID="JeepneyRoutesDropDown" runat="server" Height="21px" Width="217px" DataSourceID="manilajeepneyroutessource" DataTextField="routename" DataValueField="routename">
         </asp:DropDownList>
+        <asp:SqlDataSource ID="manilajeepneyroutessource" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2 %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
+        <asp:Button ID="Button1" runat="server" Text="Generate Jeepney Route" Width="194px" />
+        <asp:Button ID="Button2" runat="server" Text="Reset" Width="115px" />
         </p>
 
     <address>
