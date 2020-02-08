@@ -4,9 +4,45 @@
     <html>
     <head>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
-        <link rel="stylesheet" href="leaflet-routing-machine.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-        <script src="leaflet-routing-machine.js"></script>
+        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script type = "text/javascript">
+             function GetLat() {
+                 $.ajax({
+                     type: "POST",
+                     url: "Contact.aspx/SendLat",
+                     data: '{latitude: "' + $("#<%= serializer.Serialize(wayPointLat) %>") + '" }',
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success: OnSuccess1,
+                     failure: function (response) {
+                     alert(response.d);
+                    }
+                    });
+                    }
+             function OnSuccess1(response) {
+                    alert(response.d);
+             }
+             function GetLng() {
+                 $.ajax({
+                     type: "POST",
+                     url: "Contact.aspx/SendLng",
+                     data: '{longitude: "' + $("#<%= serializer.Serialize(wayPointLng) %>") + '" }',
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success: OnSuccess2,
+                     failure: function (response) {
+                         alert(response.d);
+                     }
+                 });
+             }
+             function OnSuccess2(response) {
+                 alert(response.d);
+             }
+        </script>
+
         <style>
             #mapid { height: 500px; }
         </style>
@@ -14,8 +50,10 @@
     <body>
     
     <div id="mapid"></div>
+
     <script>
 
+        var numberofwaypointsadded = <%=numberofwaypointsadded%>
   // initialize the map
         var mymap = L.map('mapid').setView([14.60156, 121.00459], 13);
 
@@ -29,22 +67,57 @@
             zoomOffset: -1
         }).addTo(mymap);
 
-        L.Routing.control({
-            waypoints: [
-                L.latLng(<%=startlat%>, <%=startlng%>),
-                L.latLng(<%=wayPointLat1%>, <%=wayPointLng1%>),
-                L.latLng(<%=endlat%>, <%=endlng%>)
-            ],
-        routeWhileDragging: true
-        }).addTo(mymap);
+        var _jsArrLat = <%= serializer.Serialize(wayPointLat) %>;
+        var _jsArrLng = <%= serializer.Serialize(wayPointLng) %>;
+        _jsArrLat.push(<%=serializer.Serialize(wayPointLat)%>);
+        _jsArrLng.push(<%=serializer.Serialize(wayPointLng)%>);
 
-  </script>
+
+
+        var printwaypoint = false;
+
+
+            var waypoints = [];
+            for (var j = 0; j < numberofwaypointsadded; j++) {
+                waypoints.push(L.latLng(_jsArrLat[j], _jsArrLng[j]));
+            }
+
+
+            L.Routing.control({
+                waypoints:
+                    waypoints
+                ,
+                routeWhileDragging: true
+            }).addTo(mymap);
+
+        
+        
+            //    L.Routing.control({
+            //        waypoints:
+            //        waypoints,
+            //        routeWhileDragging: true
+            //    }).addTo(mymap);
+            //}
+
+
+        
+
+        
+        
+
+<%--        For (Int() i = 0; i == <%=numberofwaypointsadded%>; i++) {
+            L.latLng(<%= wayPointLat% > .toString() + i.ToString(), <%=wayPointLng%>.toString() + i.toString())
+        },--%>
+
+          </script>
+
+
     <h2><%: Title %></h2>
     <p>.<asp:DropDownList ID="JeepneyRoutesDropDown" runat="server" Height="21px" Width="217px" DataSourceID="manilajeepneyroutessource" DataTextField="routename" DataValueField="routename">
         </asp:DropDownList>
         <asp:SqlDataSource ID="manilajeepneyroutessource" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2 %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
-        <asp:Button ID="Button1" runat="server" Text="Generate Jeepney Route" Width="194px" />
-        <asp:Button ID="Button2" runat="server" Text="Reset" Width="115px" />
+        <asp:Button ID="Button1" runat="server" Text="Generate Jeepney Route" Width="194px" OnClientClick="GetLat();GetLng();"/>
+        <asp:Button ID="Button2" runat="server" Text="Reset" Width="115px"/>
         </p>
 
     <address>

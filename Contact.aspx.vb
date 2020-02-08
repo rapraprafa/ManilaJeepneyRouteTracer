@@ -1,25 +1,61 @@
-﻿Imports System.Windows
+﻿Imports System.Web.Script.Serialization
+Imports System.Web.Script.Serialization.JavaScriptSerializer
+Imports System.Web.Services
+Imports System.Windows
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 
 Public Class Contact
     Inherits Page
+    Protected i As Int32 = 100
+
+    Protected serializer = New JavaScriptSerializer()
+
     Dim myConnectionString As String
+
     Protected Property startlat As Double
     Protected Property startlng As Double
     Protected Property endlat As Double
     Protected Property endlng As Double
-    Protected Property wayPointLat1 As Double
-    Protected Property wayPointLng1 As Double
+    Protected wayPointLat(i) As Double
+    Protected wayPointLng(i) As Double
+    Protected Property numberofwaypointsadded As Int32
 
+    Public Function getJsonLat() As String
+        Dim waypointLati = New List(Of Object) From {
+            wayPointLat(i)
+    }
+        Return (New JavaScriptSerializer()).Serialize(waypointLati)
+    End Function
+
+    Public Function getJsonLng() As String
+        Dim waypointLngi = New List(Of Object) From {
+            wayPointLng(i)
+    }
+        Return (New JavaScriptSerializer()).Serialize(waypointLngi)
+    End Function
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
     End Sub
 
-    Protected Sub DropDownList1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles JeepneyRoutesDropDown.SelectedIndexChanged
+    <WebMethod()>
+    Public Shared Function SendLat(ByVal latitude As Double) As Double
+        'Dim ID = Request.Form("id")
+        'Response.Write(ID)
+        'Instead of the above, you can put a breakpoint on the next line to see value of ID
+        'Also returning ID so it is display, in your case sent to console.log
+        Return latitude
+    End Function
 
-    End Sub
+    <WebMethod()>
+    Public Shared Function SendLng(ByVal longitude As Double) As Double
+        'Dim ID = Request.Form("id")
+        'Response.Write(ID)
+        'Instead of the above, you can put a breakpoint on the next line to see value of ID
+        'Also returning ID so it is display, in your case sent to console.log
+        Return longitude
+    End Function
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim con As New MySqlConnection
@@ -42,29 +78,27 @@ Public Class Contact
             Dim reader As MySqlDataReader = objcmd.ExecuteReader
 
             If (reader.Read) Then
-                startlat = reader.GetDouble("startWaypointLat")
-                startlng = reader.GetDouble("startWaypointLng")
-                endlat = reader.GetDouble("endWaypointLat")
-                endlng = reader.GetDouble("endWaypointLng")
-                startlat = reader.GetDouble("startWaypointLat")
-                startlng = reader.GetDouble("startWaypointLng")
-                endlat = reader.GetDouble("endWaypointLat")
-                endlng = reader.GetDouble("endWaypointLng")
-                startlat = reader.GetDouble("startWaypointLat")
-                startlng = reader.GetDouble("startWaypointLng")
-                endlat = reader.GetDouble("endWaypointLat")
-                endlng = reader.GetDouble("endWaypointLng")
-                wayPointLat1 = reader.GetDouble("wayPointLat1")
-                wayPointLng1 = reader.GetDouble("wayPointLng1")
+                numberofwaypointsadded = reader.GetInt32("numberofwaypointsadded")
+                i = 0
+                Do
+                    wayPointLat(i) = reader.GetDouble("wayPointLat" + i.ToString)
+                    wayPointLng(i) = reader.GetDouble("wayPointLng" + i.ToString)
+                    i = i + 1
+                Loop Until i = numberofwaypointsadded
+
             End If
 
         Catch ex As MySql.Data.MySqlClient.MySqlException
             MessageBox.Show(ex.Message)
         End Try
-
     End Sub
+
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Response.Redirect("Contact.aspx")
+    End Sub
+
+    Protected Sub Button2_Click1(sender As Object, e As EventArgs)
+
     End Sub
 End Class
