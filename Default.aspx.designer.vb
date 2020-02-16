@@ -12,4 +12,22 @@ Option Explicit On
 
 
 Partial Public Class _Default
+
+    '''<summary>
+    '''LoginView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LoginView1 As Global.System.Web.UI.WebControls.LoginView
+
+    '''<summary>
+    '''LoginView2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LoginView2 As Global.System.Web.UI.WebControls.LoginView
 End Class
