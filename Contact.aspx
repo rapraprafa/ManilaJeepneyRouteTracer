@@ -5,10 +5,12 @@
     <head>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-         <script type = "text/javascript">
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+        <script type = "text/javascript">
              function GetLat() {
                  $.ajax({
                      type: "POST",
@@ -66,6 +68,7 @@
             tileSize: 512,
             zoomOffset: -1
         }).addTo(mymap);
+        L.Control.geocoder().addTo(mymap);
 
         var _jsArrLat = <%= serializer.Serialize(wayPointLat) %>;
         var _jsArrLng = <%= serializer.Serialize(wayPointLng) %>;
@@ -83,11 +86,15 @@
             }
 
 
-            L.Routing.control({
+            var control = L.Routing.control({
                 waypoints:
                     waypoints
                 ,
-                routeWhileDragging: true
+                routeWhileDragging: true,
+                show: true,
+                language: 'en',
+                geocoder: L.Control.Geocoder.nominatim(),
+                autoRoute: true
             }).addTo(mymap);
 
         
