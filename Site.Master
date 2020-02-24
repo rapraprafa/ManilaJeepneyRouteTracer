@@ -57,6 +57,7 @@
                             </AnonymousTemplate>
                             <LoggedInTemplate>
                                 <li><a runat="server" href="/RoutesManager.aspx">Routes Manager</a></li>
+                                <li><a runat="server" href="/UpdateRoutes.aspx">Update Routes</a></li>
                             </LoggedInTemplate>
                         </asp:LoginView>
                         <li><asp:LoginStatus ID="LoginStatus1" runat="server" /></li>

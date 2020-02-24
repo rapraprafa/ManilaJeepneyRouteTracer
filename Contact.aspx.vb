@@ -13,10 +13,6 @@ Public Class Contact
 
     Dim myConnectionString As String
 
-    Protected Property startlat As Double
-    Protected Property startlng As Double
-    Protected Property endlat As Double
-    Protected Property endlng As Double
     Protected wayPointLat(i) As Double
     Protected wayPointLng(i) As Double
     Protected Property numberofwaypointsadded As Int32
@@ -78,11 +74,15 @@ Public Class Contact
             Dim reader As MySqlDataReader = objcmd.ExecuteReader
 
             If (reader.Read) Then
+                Dim lat As String = reader.GetString("wayPointLat")
+                Dim lng As String = reader.GetString("wayPointLng")
+                Dim latarray() As String = lat.Split(New Char() {","c})
+                Dim lngarray() As String = lng.Split(New Char() {","c})
                 numberofwaypointsadded = reader.GetInt32("numberofwaypointsadded")
                 i = 0
                 Do
-                    wayPointLat(i) = reader.GetDouble("wayPointLat" + i.ToString)
-                    wayPointLng(i) = reader.GetDouble("wayPointLng" + i.ToString)
+                    wayPointLat(i) = Double.Parse(latarray(i))
+                    wayPointLng(i) = Double.Parse(lngarray(i))
                     i = i + 1
                 Loop Until i = numberofwaypointsadded
 

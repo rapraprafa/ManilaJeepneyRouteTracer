@@ -59,6 +59,15 @@ Partial Public Class RoutesManager
     Protected WithEvents lng As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''TextBox2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''Button1 control.
     '''</summary>
     '''<remarks>
@@ -68,11 +77,29 @@ Partial Public Class RoutesManager
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''TextBox2 control.
+    '''JeepneyRoutesManagerList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents JeepneyRoutesManagerList As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''JeepneyRoutes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents JeepneyRoutes As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Button2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
 End Class

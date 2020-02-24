@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Routes Manager" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RoutesManager.aspx.vb" Inherits="test.RoutesManager" %>
+﻿<%@ Page Title="Add Routes" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RoutesManager.aspx.vb" Inherits="test.RoutesManager" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
@@ -201,13 +201,17 @@
         
         
     <address>
-        One Microsoft Way<br />
+        Add Routes<br />
         Redmond, WA 98052-6399
-        <asp:Button ID="Button1" runat="server" Text="Add Route" OnClientClick="sendwaypoints();"/>
         <asp:TextBox ID="TextBox2" runat="server" placeholder="Route Name"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="Add Route" OnClientClick="sendwaypoints();"/>
         <br />
         <abbr title="Phone">P:</abbr>
         425.555.0100
+        <asp:DropDownList ID="JeepneyRoutesManagerList" runat="server" DataSourceID="JeepneyRoutes" DataTextField="routename" DataValueField="routename" Height="20px" Width="190px">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="JeepneyRoutes" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
+        <asp:Button ID="Button2" runat="server" Text="Delete Route" />
     </address>
 
     <address>
