@@ -1,8 +1,9 @@
-﻿<%@ Page Title="Contact" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.vb" Inherits="test.Contact" %>
+﻿<%@ Page Title="Route Tracer" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RouteTracer.aspx.vb" Inherits="test.RouteTracer" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
     <html>
     <head>
+        <title>Route Tracer</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -14,7 +15,7 @@
              function GetLat() {
                  $.ajax({
                      type: "POST",
-                     url: "Contact.aspx/SendLat",
+                     url: "RouteTracer.aspx/SendLat",
                      data: '{latitude: "' + $("#<%= serializer.Serialize(wayPointLat) %>") + '" }',
                      contentType: "application/json; charset=utf-8",
                      dataType: "json",
@@ -30,7 +31,7 @@
              function GetLng() {
                  $.ajax({
                      type: "POST",
-                     url: "Contact.aspx/SendLng",
+                     url: "RouteTracer.aspx/SendLng",
                      data: '{longitude: "' + $("#<%= serializer.Serialize(wayPointLng) %>") + '" }',
                      contentType: "application/json; charset=utf-8",
                      dataType: "json",

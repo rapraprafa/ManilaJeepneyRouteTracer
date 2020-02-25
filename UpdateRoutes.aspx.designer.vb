@@ -14,6 +14,33 @@ Option Explicit On
 Partial Public Class UpdateRoutes
 
     '''<summary>
+    '''Latitude control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Latitude As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''Longitude control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Longitude As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''WaypointCount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents WaypointCount As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''JeepneyRouteToUpdate control.
     '''</summary>
     '''<remarks>
@@ -30,6 +57,24 @@ Partial Public Class UpdateRoutes
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RouteToUpdate As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''TextBox2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''TextBox1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Button1 control.

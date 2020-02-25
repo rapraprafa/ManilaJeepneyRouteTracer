@@ -50,13 +50,14 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Contact">Route Tracer</a></li>
+                        <li><a runat="server" href="~/RouteTracer">Route Tracer</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
                             </AnonymousTemplate>
                             <LoggedInTemplate>
-                                <li><a runat="server" href="/RoutesManager.aspx">Routes Manager</a></li>
+                                <li><a runat="server" href="/AddRoutes.aspx">Add Routes</a></li>
+                                <li><a runat="server" href="/DeleteRoutes.aspx">Delete Routes</a></li>
                                 <li><a runat="server" href="/UpdateRoutes.aspx">Update Routes</a></li>
                             </LoggedInTemplate>
                         </asp:LoginView>

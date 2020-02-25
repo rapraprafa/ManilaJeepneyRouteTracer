@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Update Routes" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UpdateRoutes.aspx.vb" Inherits="test.UpdateRoutes" %>
+﻿<%@ Page Title="Delete Routes" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DeleteRoutes.aspx.vb" Inherits="test.DeleteRoutes" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -6,7 +6,7 @@
 
     <html>
     <head>
-        <title>Update Routes</title>
+        <title>Delete Routes</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -19,11 +19,8 @@
         </style>
     </head>
     <body>
-        <asp:HiddenField ID="Latitude" runat="server" />
-        <asp:HiddenField ID="Longitude" runat="server" />
-        <asp:HiddenField ID="WaypointCount" runat="server" />
         <div id="mapid"></div>
-        <script>
+    <script>
 
         var numberofwaypointsadded = <%=numberofwaypointsadded%>
   // initialize the map
@@ -94,42 +91,14 @@
                 mymap.closePopup();
             });
 
-            
-
-            routeArray = control.getWaypoints();
-
-
-
-            document.getElementById('<%= WaypointCount.ClientID %>').value = control.getWaypoints().length;
-            
-
 
             L.popup().setContent(container).setLatLng(e.latlng).openOn(mymap);
         });
 
-            var routeArray = new Array();
-            var yourArrayLat = [];
-            var yourArrayLng = [];
-            function sendwaypoints() {
-                alert("fuck");
-                for (var i = 0; i < control.getWaypoints().length; i++) {
-                    yourArrayLat.push(routeArray[i].latLng.lat);
-                    yourArrayLng.push(routeArray[i].latLng.lng);
-                    alert(routeArray[i].latLng.lat);
-                    alert(routeArray[i].latLng.lng);
-                }
-                document.getElementById('<%= Latitude.ClientID %>').value = yourArrayLat;
-                document.getElementById('<%= Longitude.ClientID %>').value = yourArrayLng;
-            }
-
-
 </script>
-
-        <asp:DropDownList ID="JeepneyRouteToUpdate" runat="server" AutoPostBack="true" DataSourceID="RouteToUpdate" DataTextField="routename" DataValueField="routename" Width="173px"></asp:DropDownList>
-        <asp:SqlDataSource ID="RouteToUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
-        <asp:TextBox ID="TextBox2" runat="server" Width="164px" placeholder="Route ID" Enabled="False"></asp:TextBox>
-        <asp:TextBox ID="TextBox1" runat="server" Width="162px" placeholder="Route Name"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Save" Width="167px" OnClientClick="sendwaypoints();"/>
+        <asp:DropDownList ID="JeepneyRouteToDelete" runat="server" AutoPostBack="True" DataSourceID="RouteToDeletez" DataTextField="routename" DataValueField="routename" Width="173px"></asp:DropDownList>
+        <asp:SqlDataSource ID="RouteToDeletez" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
+        <asp:Button ID="Button1" runat="server" Text="Delete" Width="167px" />
     </body>
     </html>
 </asp:Content>

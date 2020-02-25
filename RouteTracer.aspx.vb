@@ -5,7 +5,7 @@ Imports System.Windows
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 
-Public Class Contact
+Public Class RouteTracer
     Inherits Page
     Protected i As Int32 = 100
 

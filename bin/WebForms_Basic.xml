@@ -37,7 +37,34 @@ test
  Returns the Asp log object.
  </summary>
 </member>
-<member name="F:test.RoutesManager._Latitude">
+<member name="F:test.DeleteRoutes._JeepneyRouteToDelete">
+<summary>
+JeepneyRouteToDelete control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.DeleteRoutes._RouteToDeletez">
+<summary>
+RouteToDeletez control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.DeleteRoutes._Button1">
+<summary>
+Button1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.AddRoutes._Latitude">
 <summary>
 Latitude control.
 </summary>
@@ -46,7 +73,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._Longitude">
+<member name="F:test.AddRoutes._Longitude">
 <summary>
 Longitude control.
 </summary>
@@ -55,7 +82,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._WaypointCount">
+<member name="F:test.AddRoutes._WaypointCount">
 <summary>
 WaypointCount control.
 </summary>
@@ -64,7 +91,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._lat">
+<member name="F:test.AddRoutes._lat">
 <summary>
 lat control.
 </summary>
@@ -73,7 +100,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._lng">
+<member name="F:test.AddRoutes._lng">
 <summary>
 lng control.
 </summary>
@@ -82,7 +109,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._TextBox2">
+<member name="F:test.AddRoutes._TextBox2">
 <summary>
 TextBox2 control.
 </summary>
@@ -91,7 +118,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._Button1">
+<member name="F:test.AddRoutes._Button1">
 <summary>
 Button1 control.
 </summary>
@@ -100,16 +127,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._JeepneyRoutesManagerList">
-<summary>
-JeepneyRoutesManagerList control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
-<member name="F:test.RoutesManager._JeepneyRoutes">
+<member name="F:test.AddRoutes._JeepneyRoutes">
 <summary>
 JeepneyRoutes control.
 </summary>
@@ -118,16 +136,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.RoutesManager._Button2">
-<summary>
-Button2 control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
-<member name="F:test.Contact._JeepneyRoutesDropDown">
+<member name="F:test.RouteTracer._JeepneyRoutesDropDown">
 <summary>
 JeepneyRoutesDropDown control.
 </summary>
@@ -136,7 +145,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.Contact._manilajeepneyroutessource">
+<member name="F:test.RouteTracer._manilajeepneyroutessource">
 <summary>
 manilajeepneyroutessource control.
 </summary>
@@ -145,7 +154,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.Contact._Button1">
+<member name="F:test.RouteTracer._Button1">
 <summary>
 Button1 control.
 </summary>
@@ -154,7 +163,7 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test.Contact._Button2">
+<member name="F:test.RouteTracer._Button2">
 <summary>
 Button2 control.
 </summary>
@@ -208,6 +217,33 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:test.UpdateRoutes._Latitude">
+<summary>
+Latitude control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.UpdateRoutes._Longitude">
+<summary>
+Longitude control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.UpdateRoutes._WaypointCount">
+<summary>
+WaypointCount control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:test.UpdateRoutes._JeepneyRouteToUpdate">
 <summary>
 JeepneyRouteToUpdate control.
@@ -220,6 +256,24 @@ To modify move field declaration from designer file to code-behind file.
 <member name="F:test.UpdateRoutes._RouteToUpdate">
 <summary>
 RouteToUpdate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.UpdateRoutes._TextBox2">
+<summary>
+TextBox2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:test.UpdateRoutes._TextBox1">
+<summary>
+TextBox1 control.
 </summary>
 <remarks>
 Auto-generated field.

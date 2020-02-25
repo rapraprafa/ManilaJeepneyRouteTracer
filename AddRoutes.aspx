@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add Routes" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RoutesManager.aspx.vb" Inherits="test.RoutesManager" %>
+﻿<%@ Page Title="Add Routes" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddRoutes.aspx.vb" Inherits="test.AddRoutes" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
@@ -208,10 +208,7 @@
         <br />
         <abbr title="Phone">P:</abbr>
         425.555.0100
-        <asp:DropDownList ID="JeepneyRoutesManagerList" runat="server" DataSourceID="JeepneyRoutes" DataTextField="routename" DataValueField="routename" Height="20px" Width="190px">
-        </asp:DropDownList>
         <asp:SqlDataSource ID="JeepneyRoutes" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
-        <asp:Button ID="Button2" runat="server" Text="Delete Route" />
     </address>
 
     <address>

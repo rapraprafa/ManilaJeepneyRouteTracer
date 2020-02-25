@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class RoutesManager
+Partial Public Class AddRoutes
 
     '''<summary>
     '''Latitude control.
@@ -77,15 +77,6 @@ Partial Public Class RoutesManager
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''JeepneyRoutesManagerList control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents JeepneyRoutesManagerList As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''JeepneyRoutes control.
     '''</summary>
     '''<remarks>
@@ -93,13 +84,4 @@ Partial Public Class RoutesManager
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents JeepneyRoutes As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''Button2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
 End Class

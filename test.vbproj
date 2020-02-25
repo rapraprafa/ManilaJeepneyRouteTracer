@@ -172,9 +172,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RoutesManager.aspx" />
+    <Content Include="DeleteRoutes.aspx" />
+    <Content Include="AddRoutes.aspx" />
     <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="RouteTracer.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -229,11 +230,18 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RoutesManager.aspx.designer.vb">
-      <DependentUpon>RoutesManager.aspx</DependentUpon>
+    <Compile Include="DeleteRoutes.aspx.designer.vb">
+      <DependentUpon>DeleteRoutes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RoutesManager.aspx.vb">
-      <DependentUpon>RoutesManager.aspx</DependentUpon>
+    <Compile Include="DeleteRoutes.aspx.vb">
+      <DependentUpon>DeleteRoutes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AddRoutes.aspx.designer.vb">
+      <DependentUpon>AddRoutes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoutes.aspx.vb">
+      <DependentUpon>AddRoutes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
@@ -245,11 +253,11 @@
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.vb">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="RouteTracer.aspx.designer.vb">
+      <DependentUpon>RouteTracer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.vb">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="RouteTracer.aspx.vb">
+      <DependentUpon>RouteTracer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">
