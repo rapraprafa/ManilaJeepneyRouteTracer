@@ -11,9 +11,11 @@
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-        <script>
-
-        </script>
+        <link rel="stylesheet" href="/Content/bootstrap.min.css">
+	    <script src="popper.min.js"></script>
+	    <script src="bootstrap.min.js"></script>
+	    <script src="all.js"></script>
+	    <link href="style.css" rel="stylesheet">
 <%--        <script>
             $(document).ready(function () {
                 $("#Button1").click(function () {
@@ -66,7 +68,7 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 30,
             id: 'mapbox/streets-v11',
-            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazY2YWZmMWUxMG9xM2Zsd2p0MnZvNW14In0.TQx3x3onTsOJ_l_A5NO-_Q',
+            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazdtemRwczAwbGxkM2xwaWU2cTdtb2U1In0.IuwMdFOeKEzy5jPMlwFZDw',
             tileSize: 512,
             zoomOffset: -1
         }).addTo(mymap);
@@ -163,7 +165,6 @@
                 //waypointslength = control.getWaypoints().length;
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send(null);
-                alert(xmlhttp);
 
                 //$.ajax({
                 //    url: "/RoutesManager.aspx/latitu",
@@ -192,29 +193,20 @@
             }
             document.getElementById('<%= Latitude.ClientID %>').value = yourArrayLat;
             document.getElementById('<%= Longitude.ClientID %>').value = yourArrayLng;
-            alert(document.getElementById('<%= Latitude.ClientID %>').value);
-            alert(document.getElementById('<%= Longitude.ClientID %>').value);
 
         }
     </script>
 
+    <h2><%: Title %></h2>
         
-        
-    <address>
-        Add Routes<br />
-        Redmond, WA 98052-6399
-        <asp:TextBox ID="TextBox2" runat="server" placeholder="Route Name"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Add Route" OnClientClick="sendwaypoints();"/>
+        <p><asp:TextBox ID="TextBox2" runat="server" placeholder="Route Name" Width="197px"></asp:TextBox>
+        </p>
+        <p>
+        <asp:Button ID="Button1" runat="server" class="btn btn-primary btn-lg" Text="Add Route" OnClientClick="sendwaypoints();"/>
         <br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
         <asp:SqlDataSource ID="JeepneyRoutes" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
-    </address>
+        </p>
 
-    <address>
-        <strong>Support:</strong><a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong><a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
     </body>
     </html>
 </asp:Content>

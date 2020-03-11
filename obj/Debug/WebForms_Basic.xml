@@ -172,24 +172,6 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:test._Default._LoginView1">
-<summary>
-LoginView1 control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
-<member name="F:test._Default._LoginView2">
-<summary>
-LoginView2 control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
 <member name="F:test.SiteMaster._LoginView1">
 <summary>
 LoginView1 control.

@@ -33,7 +33,6 @@ Public Class UpdateRoutes
 
                 objcon = New MySqlConnection(myConnectionString)
                 objcon.Open()
-                MessageBox.Show(WaypointCount.Value)
                 Dim stmt As String = "update jeepneyroutes set routename = '" & TextBox1.Text & "', numberofwaypointsadded = '" & WaypointCount.Value & "' where routeid = '" & TextBox2.Text & "'"
                 objcmd = New MySqlCommand(stmt, objcon)
                 objcmd.ExecuteNonQuery()

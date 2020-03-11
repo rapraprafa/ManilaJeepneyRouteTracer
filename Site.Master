@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Manila Jeepney Routes</title>
+    <title><%: Page.Title %> - Manila Jeepney Route Tracer</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -51,7 +51,6 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/RouteTracer">Route Tracer</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
                             </AnonymousTemplate>
@@ -72,7 +71,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Manila Jeepney Route Tracer</p>
             </footer>
         </div>
 

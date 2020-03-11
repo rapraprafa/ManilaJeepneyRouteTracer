@@ -6,7 +6,6 @@
 
     <html>
     <head>
-        <title>Update Routes</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -17,6 +16,12 @@
         <style>
             #mapid { height: 500px; }
         </style>
+        <title>Update Routes</title>
+        <link rel="stylesheet" href="/Content/bootstrap.min.css">
+	    <script src="popper.min.js"></script>
+	    <script src="bootstrap.min.js"></script>
+	    <script src="all.js"></script>
+	    <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <asp:HiddenField ID="Latitude" runat="server" />
@@ -34,7 +39,7 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 30,
             id: 'mapbox/streets-v11',
-            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazY2YWZmMWUxMG9xM2Zsd2p0MnZvNW14In0.TQx3x3onTsOJ_l_A5NO-_Q',
+            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazdtemRwczAwbGxkM2xwaWU2cTdtb2U1In0.IuwMdFOeKEzy5jPMlwFZDw',
             tileSize: 512,
             zoomOffset: -1
         }).addTo(mymap);
@@ -111,12 +116,9 @@
             var yourArrayLat = [];
             var yourArrayLng = [];
             function sendwaypoints() {
-                alert("fuck");
                 for (var i = 0; i < control.getWaypoints().length; i++) {
                     yourArrayLat.push(routeArray[i].latLng.lat);
                     yourArrayLng.push(routeArray[i].latLng.lng);
-                    alert(routeArray[i].latLng.lat);
-                    alert(routeArray[i].latLng.lng);
                 }
                 document.getElementById('<%= Latitude.ClientID %>').value = yourArrayLat;
                 document.getElementById('<%= Longitude.ClientID %>').value = yourArrayLng;
@@ -124,12 +126,17 @@
 
 
 </script>
-
+        <h2><%: Title %></h2>
+        <p>
         <asp:DropDownList ID="JeepneyRouteToUpdate" runat="server" AutoPostBack="true" DataSourceID="RouteToUpdate" DataTextField="routename" DataValueField="routename" Width="173px"></asp:DropDownList>
         <asp:SqlDataSource ID="RouteToUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
+        <p>
         <asp:TextBox ID="TextBox2" runat="server" Width="164px" placeholder="Route ID" Enabled="False"></asp:TextBox>
         <asp:TextBox ID="TextBox1" runat="server" Width="162px" placeholder="Route Name"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="Save" Width="167px" OnClientClick="sendwaypoints();"/>
+        </p>
+        <p>
+        <asp:Button ID="Button1" runat="server" class="btn btn-primary btn-lg" Text="Save" Width="167px" OnClientClick="sendwaypoints();"/>
+        </p>
     </body>
     </html>
 </asp:Content>

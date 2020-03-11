@@ -21,12 +21,10 @@
                      dataType: "json",
                      success: OnSuccess1,
                      failure: function (response) {
-                     alert(response.d);
                     }
                     });
                     }
              function OnSuccess1(response) {
-                    alert(response.d);
              }
              function GetLng() {
                  $.ajax({
@@ -37,18 +35,21 @@
                      dataType: "json",
                      success: OnSuccess2,
                      failure: function (response) {
-                         alert(response.d);
                      }
                  });
              }
              function OnSuccess2(response) {
-                 alert(response.d);
              }
         </script>
 
         <style>
             #mapid { height: 500px; }
         </style>
+        <link rel="stylesheet" href="/Content/bootstrap.min.css">
+	    <script src="popper.min.js"></script>
+	    <script src="bootstrap.min.js"></script>
+	    <script src="all.js"></script>
+	    <link href="style.css" rel="stylesheet">
     </head>
     <body>
     
@@ -65,7 +66,7 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 30,
             id: 'mapbox/streets-v11',
-            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazY2YWZmMWUxMG9xM2Zsd2p0MnZvNW14In0.TQx3x3onTsOJ_l_A5NO-_Q',
+            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazdtemRwczAwbGxkM2xwaWU2cTdtb2U1In0.IuwMdFOeKEzy5jPMlwFZDw',
             tileSize: 512,
             zoomOffset: -1
         }).addTo(mymap);
@@ -121,24 +122,14 @@
 
 
     <h2><%: Title %></h2>
-    <p>.<asp:DropDownList ID="JeepneyRoutesDropDown" runat="server" Height="21px" Width="217px" DataSourceID="manilajeepneyroutessource" DataTextField="routename" DataValueField="routename">
+    <p><asp:DropDownList ID="JeepneyRoutesDropDown" runat="server" Height="21px" Width="217px" DataSourceID="manilajeepneyroutessource" DataTextField="routename" DataValueField="routename">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="manilajeepneyroutessource" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2 %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
-        <asp:Button ID="Button1" runat="server" Text="Generate Jeepney Route" Width="194px" OnClientClick="GetLat();GetLng();"/>
-        <asp:Button ID="Button2" runat="server" Text="Reset" Width="115px"/>
         </p>
-
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
-
-    <address>
-        <strong>Support:</strong><a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong><a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
+        <p>
+        <asp:SqlDataSource ID="manilajeepneyroutessource" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2 %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionString2.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
+        <asp:Button ID="Button1" runat="server" class="btn btn-primary btn-lg" Text="Generate Jeepney Route" Width="300px" OnClientClick="GetLat();GetLng();"/>
+        <asp:Button ID="Button2" runat="server" class="btn btn-outline-secondary btn-lg" Text="Reset" Width="115px"/>
+        </p>
     </body>
     </html>
 </asp:Content>

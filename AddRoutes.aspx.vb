@@ -60,8 +60,6 @@ Public Class AddRoutes
                 Dim lngarray() As String = lng.Split(New Char() {","c})
                 i = 0
                 Do
-                    MessageBox.Show(latarray(i))
-                    MessageBox.Show(lngarray(i))
                     Dim stmt2 As String = "update jeepneyroutes set wayPointLat = IFNULL (CONCAT( wayPointLat , ', ' , '" & latarray(i) & "' ), '" & latarray(i) & "'), wayPointLng = IFNULL (CONCAT( wayPointLng , ', ' , '" & lngarray(i) & "' ), '" & lngarray(i) & "') where routename = '" & TextBox2.Text & "'"
                     objcmd = New MySqlCommand(stmt2, objcon)
                     objcmd.ExecuteNonQuery()

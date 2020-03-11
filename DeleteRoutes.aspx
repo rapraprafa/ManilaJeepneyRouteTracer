@@ -6,7 +6,6 @@
 
     <html>
     <head>
-        <title>Delete Routes</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -17,6 +16,12 @@
         <style>
             #mapid { height: 500px; }
         </style>
+        <title>Delete Routes</title>
+        <link rel="stylesheet" href="/Content/bootstrap.min.css">
+	    <script src="popper.min.js"></script>
+	    <script src="bootstrap.min.js"></script>
+	    <script src="all.js"></script>
+	    <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div id="mapid"></div>
@@ -31,7 +36,7 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 30,
             id: 'mapbox/streets-v11',
-            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazY2YWZmMWUxMG9xM2Zsd2p0MnZvNW14In0.TQx3x3onTsOJ_l_A5NO-_Q',
+            accessToken: 'pk.eyJ1IjoicmFwcmFwcmFmYSIsImEiOiJjazdtemRwczAwbGxkM2xwaWU2cTdtb2U1In0.IuwMdFOeKEzy5jPMlwFZDw',
             tileSize: 512,
             zoomOffset: -1
         }).addTo(mymap);
@@ -96,9 +101,15 @@
         });
 
 </script>
-        <asp:DropDownList ID="JeepneyRouteToDelete" runat="server" AutoPostBack="True" DataSourceID="RouteToDeletez" DataTextField="routename" DataValueField="routename" Width="173px"></asp:DropDownList>
+
+        <h2><%: Title %></h2>
+
+        <p><asp:DropDownList ID="JeepneyRouteToDelete" runat="server" AutoPostBack="True" DataSourceID="RouteToDeletez" DataTextField="routename" DataValueField="routename" Width="173px"></asp:DropDownList>
         <asp:SqlDataSource ID="RouteToDeletez" runat="server" ConnectionString="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown %>" ProviderName="<%$ ConnectionStrings:manilajeepneyroutesConnectionStringDropDown.ProviderName %>" SelectCommand="select routename from jeepneyroutes"></asp:SqlDataSource>
-        <asp:Button ID="Button1" runat="server" Text="Delete" Width="167px" />
+        </p>
+        <p><asp:Button ID="Button1" runat="server" class="btn btn-primary btn-lg" Text="Delete" Width="167px" />
+        </p>
+
     </body>
     </html>
 </asp:Content>

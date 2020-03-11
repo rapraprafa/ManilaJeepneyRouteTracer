@@ -25,9 +25,6 @@
                     <div class="form-group">
                         <asp:Button ID="LoginAdmin" runat="server" Text="Login" class="btnSubmit" />
                     </div>
-                    <div class="form-group">
-                        <a href="#" class="ForgetPwd">Forget Password?</a>
-                    </div>
                 </form>
             </div>
         </div>
